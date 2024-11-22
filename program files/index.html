@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Student Academic Performance</h1>
+        <form action="{{ url_for('predict_endpoint') }}" method="post">
+            <label for="gender">Gender:</label>
+            <select name="gender" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+
+            <label for="nationality">Nationality (code):</label>
+            <input type="number" name="nationality" required>
+
+            <label for="stage_id">Stage ID:</label>
+            <select name="stage_id" required>
+                <option value="lowerlevel">Lower Level</option>
+                <option value="MiddleSchool">Middle School</option>
+                <option value="HighSchool">High School</option>
+            </select>
+
+            <label for="grade_id">Grade ID:</label>
+            <select name="grade_id" required>
+                <!-- Add options as per the mappings in feature_engineer function -->
+            </select>
+
+            <label for="section_id">Section ID:</label>
+            <select name="section_id" required>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+
+            <label for="parent_answering_survey">Parent Answering Survey:</label>
+            <select name="parent_answering_survey" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="parent_school_satisfaction">Parent School Satisfaction:</label>
+            <select name="parent_school_satisfaction" required>
+                <option value="Good">Good</option>
+                <option value="Bad">Bad</option>
+            </select>
+
+            <label for="student_absence_days">Student Absence Days:</label>
+            <select name="student_absence_days" required>
+                <option value="Under-7">Under-7</option>
+                <option value="Above-7">Above-7</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
